@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		811FFE231E084D980039D689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811FFE221E084D980039D689 /* AppDelegate.swift */; };
+		811FFE291E084D980039D689 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811FFE281E084D980039D689 /* GameScene.swift */; };
+		811FFE2B1E084D980039D689 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811FFE2A1E084D980039D689 /* ViewController.swift */; };
+		811FFE2D1E084D980039D689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811FFE2C1E084D980039D689 /* Assets.xcassets */; };
+		811FFE301E084D980039D689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811FFE2E1E084D980039D689 /* Main.storyboard */; };
+		812ABEE01E44F87800D050DD /* space-final-frontier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 812ABEDF1E44F87800D050DD /* space-final-frontier.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		811FFE1F1E084D980039D689 /* SpriteKitAnimationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitAnimationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		811FFE221E084D980039D689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		811FFE281E084D980039D689 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		811FFE2A1E084D980039D689 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		811FFE2C1E084D980039D689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		811FFE2F1E084D980039D689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		811FFE311E084D980039D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811FFE371E084EA60039D689 /* ExperimentZone.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ExperimentZone.playground; sourceTree = "<group>"; };
+		812ABEDF1E44F87800D050DD /* space-final-frontier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "space-final-frontier.mp3"; path = "ExperimentZone.playground/Resources/space-final-frontier.mp3"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		811FFE1C1E084D980039D689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		811FFE161E084D980039D689 = {
+			isa = PBXGroup;
+			children = (
+				811FFE211E084D980039D689 /* SpriteKitAnimationExample */,
+				811FFE201E084D980039D689 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		811FFE201E084D980039D689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				811FFE1F1E084D980039D689 /* SpriteKitAnimationExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		811FFE211E084D980039D689 /* SpriteKitAnimationExample */ = {
+			isa = PBXGroup;
+			children = (
+				811FFE221E084D980039D689 /* AppDelegate.swift */,
+				811FFE281E084D980039D689 /* GameScene.swift */,
+				811FFE2A1E084D980039D689 /* ViewController.swift */,
+				811FFE2C1E084D980039D689 /* Assets.xcassets */,
+				811FFE2E1E084D980039D689 /* Main.storyboard */,
+				811FFE311E084D980039D689 /* Info.plist */,
+				812ABEE11E44F87D00D050DD /* Sounds */,
+				811FFE371E084EA60039D689 /* ExperimentZone.playground */,
+			);
+			path = SpriteKitAnimationExample;
+			sourceTree = "<group>";
+		};
+		812ABEE11E44F87D00D050DD /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				812ABEDF1E44F87800D050DD /* space-final-frontier.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		811FFE1E1E084D980039D689 /* SpriteKitAnimationExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 811FFE341E084D980039D689 /* Build configuration list for PBXNativeTarget "SpriteKitAnimationExample" */;
+			buildPhases = (
+				811FFE1B1E084D980039D689 /* Sources */,
+				811FFE1C1E084D980039D689 /* Frameworks */,
+				811FFE1D1E084D980039D689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpriteKitAnimationExample;
+			productName = SpriteKitAnimationExample;
+			productReference = 811FFE1F1E084D980039D689 /* SpriteKitAnimationExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		811FFE171E084D980039D689 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Russell Gordon";
+				TargetAttributes = {
+					811FFE1E1E084D980039D689 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = U2ZN2W2UQJ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 811FFE1A1E084D980039D689 /* Build configuration list for PBXProject "SpriteKitAnimationExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 811FFE161E084D980039D689;
+			productRefGroup = 811FFE201E084D980039D689 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				811FFE1E1E084D980039D689 /* SpriteKitAnimationExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		811FFE1D1E084D980039D689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812ABEE01E44F87800D050DD /* space-final-frontier.mp3 in Resources */,
+				811FFE2D1E084D980039D689 /* Assets.xcassets in Resources */,
+				811FFE301E084D980039D689 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		811FFE1B1E084D980039D689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				811FFE2B1E084D980039D689 /* ViewController.swift in Sources */,
+				811FFE291E084D980039D689 /* GameScene.swift in Sources */,
+				811FFE231E084D980039D689 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		811FFE2E1E084D980039D689 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				811FFE2F1E084D980039D689 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		811FFE321E084D980039D689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		811FFE331E084D980039D689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		811FFE351E084D980039D689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
+				INFOPLIST_FILE = SpriteKitAnimationExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.rsgc.SpriteKitAnimationExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		811FFE361E084D980039D689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
+				INFOPLIST_FILE = SpriteKitAnimationExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.rsgc.SpriteKitAnimationExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		811FFE1A1E084D980039D689 /* Build configuration list for PBXProject "SpriteKitAnimationExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				811FFE321E084D980039D689 /* Debug */,
+				811FFE331E084D980039D689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		811FFE341E084D980039D689 /* Build configuration list for PBXNativeTarget "SpriteKitAnimationExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				811FFE351E084D980039D689 /* Debug */,
+				811FFE361E084D980039D689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 811FFE171E084D980039D689 /* Project object */;
+}
