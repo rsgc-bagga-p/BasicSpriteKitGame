@@ -43,7 +43,7 @@ class Scene: SKScene {
         let circle = SKSpriteNode(imageNamed: "circle")
         circle.name = "shape"
         circle.position = CGPoint(x: self.size.width * 0.25,
-                                  y: self.size.height * 0.50)
+                                  y: circle.frame.height / 2)
         self.addChild(circle)
         
         // Set physics body for the circle based on its radius
