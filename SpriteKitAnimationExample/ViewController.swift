@@ -24,7 +24,9 @@ class ViewController: NSViewController {
         skView.ignoresSiblingOrder = true
         view.addSubview(skView)
         scene.scaleMode = .aspectFit
+        skView.showsPhysics = true
         skView.presentScene(scene)
+        
     }
     
     override func viewDidAppear() {

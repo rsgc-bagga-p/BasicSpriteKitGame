@@ -13,7 +13,8 @@ class Scene: SKScene {
 
     // Properties available to all methods in the class are defined here
     var midPoint = CGPoint()
-
+    var circle = SKSpriteNode()
+    
     // This method runs once after the scene loads
     override func didMove(to view: SKView) {
         
@@ -35,12 +36,28 @@ class Scene: SKScene {
             // Add the sprites to the scene
             self.addChild(square)
             
+            // Make a path around the rectangle
+            let squarePath = CGMutablePath()
+            // Start at bottom left corner
+            squarePath.move(to: CGPoint(x: -square.size.width / 2, y: -square.size.height / 2))
+            // Draw left path to upper left corner
+            squarePath.addLine(to: CGPoint(x: -square.size.width / 2, y: square.size.height / 2))
+            // Draw top path to upper right corner
+            squarePath.addLine(to: CGPoint(x: square.size.width / 2, y: square.size.height / 2))
+            // Draw right path to lower right corner
+            squarePath.addLine(to: CGPoint(x: square.size.width / 2, y: -square.size.height / 2))
+            // Draw bottom path to bottom left corner
+            squarePath.addLine(to: CGPoint(x: -square.size.width / 2, y: -square.size.height / 2))
+            
             // Set physics body for the square based on its existing dimensions (frame size)
-            square.physicsBody = SKPhysicsBody(edgeLoopFrom: square.frame)
+//            square.physicsBody = SKPhysicsBody(edgeLoopFrom: square.centerRect)
+//            square.physicsBody = SKPhysicsBody(texture: square.texture!, size: square.size)
+            square.physicsBody = SKPhysicsBody(edgeLoopFrom: squarePath)
+            
         }
 
         // Add the ball that will be shot
-        let circle = SKSpriteNode(imageNamed: "circle")
+        circle = SKSpriteNode(imageNamed: "circle")
         circle.name = "shape"
         circle.position = CGPoint(x: self.size.width * 0.25,
                                   y: circle.frame.height / 2)
@@ -51,7 +68,7 @@ class Scene: SKScene {
         
         // Make an edge loop at the boundaries of the scene
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-        
+                
     }
     
     // This function runs every time the viewable frame is updated by SpriteKit (roughly 60 fps)
@@ -60,61 +77,28 @@ class Scene: SKScene {
         
     }
     
-    // This method handles setup of the actions to create the basic animation
-    func showMonologue() {
-        
-        // Array of sentences to display on screen
-        var sentences : [String] = []
-        sentences += ["Space..."]
-        sentences += ["The Final Frontier"]
-        sentences += ["These are the voyages"]
-        sentences += ["of the starship"]
-        sentences += ["Enterprise."]
-        sentences += ["It's continuing mission..."]
-        sentences += ["to explore strange new worlds"]
-        sentences += ["to seek out new life"]
-        sentences += ["and new civilizations"]
-        sentences += ["to boldly go"]
-        sentences += ["where no one"]
-        sentences += ["has gone before."]
-        
-        // Create some actions that will be reused below several times (action creation is expensive so unnecessary re-creation of actions should be avoided)
-        let actionMakeVisible = SKAction.unhide()
-        let actionFadeIn = SKAction.fadeIn(withDuration: 1)
-        let actionWaitToShow = SKAction.wait(forDuration: 1)
-        let actionFadeOut = SKAction.fadeOut(withDuration: 1)
-        let actionRemoveNode = SKAction.removeFromParent()
-        
-        // Play short sound clip
-        let actionPlaySound = SKAction.playSoundFileNamed("space-final-frontier.mp3", waitForCompletion: false)
-        let sequence = SKAction.sequence([actionWaitToShow, actionPlaySound])
-        self.run(sequence)
-        
-        // Iterate over the sentences and create SKLabelNodes
-        var monologueLabels : [SKLabelNode] = []
-        for sentence in sentences {
-            
-            // Create the instance of SKLabelNode
-            monologueLabels += [SKLabelNode(fontNamed: "Futura")]
-            
-            // Configure the instance just added to the monologueLabels array
-            monologueLabels[monologueLabels.count - 1].fontSize = 24
-            monologueLabels[monologueLabels.count - 1].fontColor = SKColor.white
-            monologueLabels[monologueLabels.count - 1].zPosition = 250
-            monologueLabels[monologueLabels.count - 1].position = midPoint
-            monologueLabels[monologueLabels.count - 1].text = sentence
-            monologueLabels[monologueLabels.count - 1].isHidden = true
-            
-            // Set up some actions to show each label
-            let delay = TimeInterval(3 * (monologueLabels.count - 1))
-            let actionWaitToAppear = SKAction.wait(forDuration: delay)
-            let sequence = SKAction.sequence([actionWaitToAppear, actionMakeVisible, actionFadeIn, actionWaitToShow, actionFadeOut, actionRemoveNode])
-            
-            // Add the label to the scene and then run the sequence on it
-            self.addChild(monologueLabels[monologueLabels.count - 1]) // Add to scene
-            monologueLabels[monologueLabels.count - 1].run(sequence)
-            
-        }
-
+    override func mouseDragged(with event: NSEvent) {
+        print(event.locationInWindow.x)
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        
+        
+        
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        // Get the vector that represents the difference between the click location and the circle location
+        let differenceX = event.locationInWindow.x - circle.position.x
+        print("DifferenceX is: \(differenceX)")
+        let differenceY = event.locationInWindow.y - circle.position.y
+        print("DifferenceY is: \(differenceY)")
+        
+        // Move the circle
+        if let body = circle.physicsBody {
+            body.applyImpulse(CGVector(dx: differenceX, dy: differenceY))
+        }
+        
+    }
+    
 }
