@@ -50,8 +50,6 @@ class Scene: SKScene {
             squarePath.addLine(to: CGPoint(x: -square.size.width / 2, y: -square.size.height / 2))
             
             // Set physics body for the square based on its existing dimensions (frame size)
-//            square.physicsBody = SKPhysicsBody(edgeLoopFrom: square.centerRect)
-//            square.physicsBody = SKPhysicsBody(texture: square.texture!, size: square.size)
             square.physicsBody = SKPhysicsBody(edgeLoopFrom: squarePath)
             
         }
@@ -78,7 +76,8 @@ class Scene: SKScene {
     }
     
     override func mouseDragged(with event: NSEvent) {
-        print(event.locationInWindow.x)
+
+        
     }
     
     override func mouseDown(with event: NSEvent) {
@@ -88,6 +87,7 @@ class Scene: SKScene {
     }
     
     override func mouseUp(with event: NSEvent) {
+
         // Get the vector that represents the difference between the click location and the circle location
         let differenceX = event.locationInWindow.x - circle.position.x
         print("DifferenceX is: \(differenceX)")
@@ -98,6 +98,9 @@ class Scene: SKScene {
         if let body = circle.physicsBody {
             body.applyImpulse(CGVector(dx: differenceX, dy: differenceY))
         }
+        
+            
+
         
     }
     
