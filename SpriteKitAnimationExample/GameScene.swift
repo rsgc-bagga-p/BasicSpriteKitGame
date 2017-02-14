@@ -9,6 +9,14 @@
 import SpriteKit
 import GameplayKit
 
+// See page 220 – 2D Apple Games by Tutorials
+struct PhysicsCategory {
+    static let None     :   UInt32 = 0
+    static let Block    :   UInt32 = 0b1    // 1
+    static let Ball     :   UInt32 = 0b10   // 2
+    static let Edge     :   UInt32 = 0b100  // 4
+}
+
 class Scene: SKScene {
 
     // Properties available to all methods in the class are defined here
@@ -52,6 +60,9 @@ class Scene: SKScene {
             // Set physics body for the square based on its existing dimensions (frame size)
             square.physicsBody = SKPhysicsBody(edgeLoopFrom: squarePath)
             
+            // Set the physics category
+            square.physicsBody!.categoryBitMask = PhysicsCategory.Block
+            
         }
 
         // Add the ball that will be shot
@@ -64,8 +75,15 @@ class Scene: SKScene {
         // Set physics body for the circle based on its radius
         circle.physicsBody = SKPhysicsBody(circleOfRadius: circle.size.width / 2)
         
+        // Set the category and collision bit masks for the circle
+        circle.physicsBody!.categoryBitMask = PhysicsCategory.Ball
+        circle.physicsBody!.collisionBitMask = PhysicsCategory.Block | PhysicsCategory.Edge
+        
         // Make an edge loop at the boundaries of the scene
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        
+        // Set the physics category for the edge
+        self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
                 
     }
     
