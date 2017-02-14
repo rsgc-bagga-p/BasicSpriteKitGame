@@ -17,11 +17,12 @@ struct PhysicsCategory {
     static let Edge     :   UInt32 = 0b100  // 4
 }
 
-class Scene: SKScene {
+class Scene: SKScene, SKPhysicsContactDelegate {
 
     // Properties available to all methods in the class are defined here
     var midPoint = CGPoint()
     var circle = SKSpriteNode()
+    var collisionNotification = SKLabelNode()
     
     // This method runs once after the scene loads
     override func didMove(to view: SKView) {
@@ -63,6 +64,9 @@ class Scene: SKScene {
             // Set the physics category
             square.physicsBody!.categoryBitMask = PhysicsCategory.Block
             
+            // IMPORTANT: You need this line to receive callbacks in didBegin and didEnd to detect when collisions start and end with the block
+            square.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
+            
         }
 
         // Add the ball that will be shot
@@ -82,9 +86,29 @@ class Scene: SKScene {
         // Make an edge loop at the boundaries of the scene
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         
+        // Categorize the boundary of the scene as an edge
+        self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
+
+        // IMPORTANT: You need this line to receive callbacks in didBegin and didEnd to detect when collisions start and end with the wall
+        self.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
+
+        // Make sure the physics world is set up to respond to contact and collision events
+        physicsWorld.contactDelegate = self
+        
         // Set the physics category for the edge
         self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
-                
+        
+        // This will allow us to see what's happening with the collision
+        collisionNotification = SKLabelNode(fontNamed: "Futura Bold")
+        collisionNotification.position = midPoint
+        collisionNotification.isHidden = true
+        collisionNotification.fontSize = 48
+        collisionNotification.zPosition = 250
+        collisionNotification.fontColor = SKColor.white
+        collisionNotification.text = ""
+        self.addChild(collisionNotification)
+        
+        
     }
     
     // This function runs every time the viewable frame is updated by SpriteKit (roughly 60 fps)
@@ -100,25 +124,48 @@ class Scene: SKScene {
     
     override func mouseDown(with event: NSEvent) {
         
-        
-        
     }
     
     override func mouseUp(with event: NSEvent) {
 
         // Get the vector that represents the difference between the click location and the circle location
         let differenceX = event.locationInWindow.x - circle.position.x
-        print("DifferenceX is: \(differenceX)")
         let differenceY = event.locationInWindow.y - circle.position.y
-        print("DifferenceY is: \(differenceY)")
         
         // Move the circle
         if let body = circle.physicsBody {
             body.applyImpulse(CGVector(dx: differenceX, dy: differenceY))
         }
         
-            
+    }
+    
+    // Tells you when two bodies first make contact
+    func didBegin(_ contact: SKPhysicsContact) {
+        
 
+        // Get the logical OR bit mask of the two bodies that are colliding
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        print("Collision between \(collision)")
+        
+        // See whether the ball hit the blocks, or the edge of the scene
+        if collision == PhysicsCategory.Ball | PhysicsCategory.Block {
+            collisionNotification.text = "Block"
+        } else if collision == PhysicsCategory.Ball | PhysicsCategory.Edge {
+            collisionNotification.text = "Wall"
+        }
+        
+        // Make the notification show up
+        collisionNotification.isHidden = false
+        
+    }
+    
+    // Tells you when two bodies end their contact
+    func didEnd(_ contact: SKPhysicsContact) {
+        
+        print("Did end")
+
+        // Make the notification go away
+        collisionNotification.isHidden = true
         
     }
     
