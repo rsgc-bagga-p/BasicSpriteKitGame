@@ -9,15 +9,14 @@
 import SpriteKit
 import GameplayKit
 
-// See page 220 – 2D Apple Games by Tutorials
 struct PhysicsCategory {
     static let None     :   UInt32 = 0
-    static let Block    :   UInt32 = 0b1    // 1
-    static let Ball     :   UInt32 = 0b10   // 2
-    static let Edge     :   UInt32 = 0b100  // 4
+    static let Block    :   UInt32 = 0b0001  // 1
+    static let Ball     :   UInt32 = 0b0010  // 2
+    static let Edge     :   UInt32 = 0b0100  // 4
 }
 
-class Scene: SKScene, SKPhysicsContactDelegate {
+class Scene : SKScene, SKPhysicsContactDelegate {
 
     // Properties available to all methods in the class are defined here
     var midPoint = CGPoint()
@@ -95,9 +94,6 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         // Make sure the physics world is set up to respond to contact and collision events
         physicsWorld.contactDelegate = self
         
-        // Set the physics category for the edge
-        self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
-        
         // This will allow us to see what's happening with the collision
         collisionNotification = SKLabelNode(fontNamed: "Futura Bold")
         collisionNotification.position = midPoint
@@ -138,6 +134,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         }
         
     }
+
     
     // Tells you when two bodies first make contact
     func didBegin(_ contact: SKPhysicsContact) {
@@ -151,7 +148,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         if collision == PhysicsCategory.Ball | PhysicsCategory.Block {
             collisionNotification.text = "Block"
         } else if collision == PhysicsCategory.Ball | PhysicsCategory.Edge {
-            collisionNotification.text = "Wall"
+            collisionNotification.text = "Edge"
         }
         
         // Make the notification show up
