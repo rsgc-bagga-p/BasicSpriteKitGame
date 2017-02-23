@@ -15,7 +15,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         // Create the game scene
-        let scene = Scene(size: CGSize(width: 800, height: 600))
+        let scene = GameScene(size: CGSize(width: 800, height: 600))
         
         // Configure and present the scene
         let skView = SKView(frame: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 800, height: 600)))

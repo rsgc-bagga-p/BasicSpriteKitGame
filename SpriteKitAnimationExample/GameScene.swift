@@ -16,7 +16,7 @@ struct PhysicsCategory {
     static let Edge     :   UInt32 = 0b0100  // 4
 }
 
-class Scene : SKScene, SKPhysicsContactDelegate {
+class GameScene : SKScene, SKPhysicsContactDelegate {
 
     // Properties available to all methods in the class are defined here
     var midPoint = CGPoint()
@@ -132,7 +132,17 @@ class Scene : SKScene, SKPhysicsContactDelegate {
         // Look for a click on the menu button
         //if button.int
         if button.frame.contains(event.locationInWindow) {
-            print("Button pressed.")
+            print("Menu button pressed.")
+            
+            // Create the menu scene with the same dimensions as the current scene
+            let menu = MenuScene(size: self.size)
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 1.0)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(menu, transition: reveal)
         }
         
     }
