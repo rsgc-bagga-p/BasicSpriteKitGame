@@ -22,6 +22,7 @@ class Scene : SKScene, SKPhysicsContactDelegate {
     var midPoint = CGPoint()
     var circle = SKSpriteNode()
     var collisionNotification = SKLabelNode()
+    var button = SKSpriteNode()
     
     // This method runs once after the scene loads
     override func didMove(to view: SKView) {
@@ -104,6 +105,14 @@ class Scene : SKScene, SKPhysicsContactDelegate {
         collisionNotification.text = ""
         self.addChild(collisionNotification)
         
+        // Add a sprite that goes to another scene when clicked
+        // NOTE: This sprite will not be affected by gravity or any other forces
+        //       since its physicsBody property has not been set
+        button = SKSpriteNode(imageNamed: "mainmenu")
+        button.position = CGPoint(x: self.size.width / 10, y: self.size.height / 8 * 7)
+        button.setScale(0.1)
+        button.zPosition = 200
+        self.addChild(button)
         
     }
     
@@ -119,6 +128,12 @@ class Scene : SKScene, SKPhysicsContactDelegate {
     }
     
     override func mouseDown(with event: NSEvent) {
+        
+        // Look for a click on the menu button
+        //if button.int
+        if button.frame.contains(event.locationInWindow) {
+            print("Button pressed.")
+        }
         
     }
     
